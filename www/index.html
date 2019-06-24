@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" href="css/icon.css">
+<link rel="stylesheet" rel="stylesheet" href="css/materialize.min.css"/>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-database.js"></script>
+
+</head>
+
+<body >
+
+
+  <ul id="slide-out" class="sidenav">
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <h6>Ipark</h6>
+
+  <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Trulli" width="500" height="333">
+  <div id="park"></div>
+
+
+    <pre id="json"></pre>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB2rVrpu2x5cW-TAWGpuozbpPwNNU5ev8w",
+      authDomain: "ipark-274d7.firebaseapp.com",
+      databaseURL: "https://ipark-274d7.firebaseio.com",
+      projectId: "ipark-274d7",
+      storageBucket: "ipark-274d7.appspot.com",
+      messagingSenderId: "813197029099",
+      appId: "1:813197029099:web:2375dbad3ea0cc04"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+    
+    var ref = firebase.database().ref();
+  
+  ref.on("value", function(snapshot) {
+    // console.log(snapshot.val());
+     document.getElementById("json").innerHTML = JSON.stringify(snapshot.val(), undefined, 2);
+     document.getElementById("park").innerHTML = '<img class="parkingimg" src="img/car.jpg" />';
+  }, function (error) {
+     console.log("Error: " + error.code);
+  });
+                           
+  
+  </script>
+
+
+ 
+
+<script>
+
+$(document).ready(function(){
+   $('.sidenav').sidenav();
+});
+
+</script>
+
+</body>
+</html>
