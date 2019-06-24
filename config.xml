@@ -33,8 +33,8 @@
         
         <allow-navigation href="*" />
 
-        <name>Accelerometer test</name>
-        <description>Simple Accelerometer test.</description>
+        <name>ipark</name>
+        <description>ipark</description>
         <author href="http://we2app.com" email="atik@we2app.com">
         Atik
         </author>
